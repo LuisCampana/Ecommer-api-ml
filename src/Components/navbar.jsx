@@ -11,9 +11,11 @@ export const Navbar = () => {
             <img src={logo} alt="Mercado Libre" className="m-2 flex" />
           </Link>
           <Search />
-          <div className="carrito m-3">
-            <BsCart className="float-right" />
-          </div>
+          <Link to={"/carrito"}>
+            <div className="carrito m-3">
+              <BsCart className="float-right" />
+            </div>
+          </Link>
         </div>
 
         <div className="grid-rows-2 flex justify-center p-2 ">

@@ -9,13 +9,11 @@ export default function Home(search) {
   const { carrito: carritoo } = useSelector((state) => state.call);
   let params = new URLSearchParams(useLocation().search);
   search = params.get("search");
-  console.log(search);
 
   useEffect(() => {
     search ? dispatch(apicallsearch(search)) : dispatch(apicall());
   }, [search]);
-  //console.log(datos);
-  console.log(carritoo);
+  //console.log(carritoo);
 
   return (
     <ul className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-[30px] m-[20px] justify-center bg-[#ebebeb]">

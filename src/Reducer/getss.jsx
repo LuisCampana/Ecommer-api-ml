@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { act } from "react-dom/test-utils";
 export const counterSlice = createSlice({
   name: "call",
   initialState: {
@@ -10,18 +11,23 @@ export const counterSlice = createSlice({
       state.info = action.payload;
     },
     setCarrito: (state, action) => {
-      state.carrito = action.payload;
+      state.carrito.push(action.payload);
+    },
+    setDeletecarrito: (state, action) => {
+      const NextCarritoDelete = state.carrito.filter(
+        (carrito) => carrito.id !== action.payload.id
+      );
+      state.carrito = NextCarritoDelete;
     },
   },
 });
-export const { setPeople, setCarrito } = counterSlice.actions;
+export const { setPeople, setCarrito, setDeletecarrito } = counterSlice.actions;
 export default counterSlice.reducer;
 
 export const apicall = () => (dispatch) => {
   fetch("https://api.mercadolibre.com/sites/MLA/search?q=mochilas")
     .then((res) => res.json())
     .then((res) => {
-      console.log(res.results);
       dispatch(setPeople(res.results));
     });
 };
@@ -36,4 +42,7 @@ export const apicallsearch = (path) => (dispatch) => {
 
 export const carritonew = (dato) => (dispatch) => {
   dispatch(setCarrito(dato));
+};
+export const carritodelete = (carrito) => (dispatch) => {
+  dispatch(setDeletecarrito(carrito));
 };
