@@ -1,5 +1,4 @@
 import { createSlice } from "@reduxjs/toolkit";
-import { act } from "react-dom/test-utils";
 export const counterSlice = createSlice({
   name: "call",
   initialState: {

@@ -1,5 +1,6 @@
 import { useSearchParams, useNavigate } from "react-router-dom";
-
+import { BsCart } from "react-icons/bs";
+import { Link } from "react-router-dom";
 export default function Search() {
   const [searchParams, setSearchParams] = useSearchParams();
 
@@ -11,29 +12,38 @@ export default function Search() {
   let search = "";
 
   return (
-    <form
-      className="p-2 relative rounded-none w-[400px]"
-      onSubmit={handleSubmit}
-    >
-      <div>
-        <input
-          className="w-[400px] h-[29px] rounded-none	"
-          placeholder="Ingrese que lo quiera buscar"
-          type="text"
-          value={searchParams.get("search") || ""}
-          onChange={(e) => {
-            e.preventDefault();
-            search = e.target.value;
-            console.log(search);
-            if (search) {
-              setSearchParams({ search });
-            } else {
-              setSearchParams({});
-            }
-          }}
-        />
+    <div>
+      <div className="link-to-carrito">
+        <Link to={"/carrito"}>
+          <div className="carrito m-3">
+            <BsCart className="float-right" />
+          </div>
+        </Link>
       </div>
-      <button></button>
-    </form>
+      <form
+        className="p-2 relative rounded-none w-[400px]"
+        onSubmit={handleSubmit}
+      >
+        <div>
+          <input
+            className="w-[400px] h-[29px] rounded-none	"
+            placeholder="Ingrese que lo quiera buscar"
+            type="text"
+            value={searchParams.get("search") || ""}
+            onChange={(e) => {
+              e.preventDefault();
+              search = e.target.value;
+              console.log(search);
+              if (search) {
+                setSearchParams({ search });
+              } else {
+                setSearchParams({});
+              }
+            }}
+          />
+        </div>
+        <button></button>
+      </form>
+    </div>
   );
 }

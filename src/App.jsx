@@ -1,10 +1,15 @@
 import { Route, Routes } from "react-router-dom";
+import { Mlogo } from "./Components/Logo";
 import { Navbar } from "./Components/navbar";
 import { Carrito } from "./Pages/Carrito";
 import Home from "./Pages/Home";
+
 function App() {
   return (
     <div className="App">
+      <div>
+        <Mlogo />
+      </div>
       <div className="navbar">
         <Navbar />
       </div>
