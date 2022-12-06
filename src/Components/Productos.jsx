@@ -12,9 +12,9 @@ export default function Productos({ dato }) {
         <div className="text-[14px] detalles">
           <h1 className="p-[8px] text-[12px]">{dato.title}</h1>
           <strong className="text-[20px]">${dato.price}</strong>
-          <div>
+          <div className="bg-[black]">
             <button
-              className="p-[6px] m-3  bg-[#63A83E] "
+              className="p-[6px] m-3 text-[white]"
               onClick={() => {
                 dispatch(carritonew(dato));
               }}

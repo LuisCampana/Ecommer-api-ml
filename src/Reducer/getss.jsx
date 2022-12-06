@@ -20,11 +20,15 @@ export const counterSlice = createSlice({
       );
       state.carrito = NextCarritoDelete;
     },
+    setadd: (state, action) => {
+      state.cantidad = +action;
+    },
   },
 });
-export const { setPeople, setCarrito, setDeletecarrito } = counterSlice.actions;
+export const { setPeople, setCarrito, setDeletecarrito, setadd } =
+  counterSlice.actions;
 export default counterSlice.reducer;
-const limit = 25;
+const limit = 24;
 export const apicall = () => (dispatch) => {
   fetch("https://api.mercadolibre.com/sites/MLA/search?q=mochilas")
     .then((res) => res.json())
