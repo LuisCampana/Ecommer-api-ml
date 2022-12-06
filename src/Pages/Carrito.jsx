@@ -1,10 +1,13 @@
 import { useDispatch, useSelector } from "react-redux";
 import { MdDelete } from "react-icons/md";
 import { carritodelete } from "../Reducer/getss";
+import { GrFormAdd } from "react-icons/gr";
+import { VscDash } from "react-icons/vsc";
 
 export function Carrito({ Carrito }) {
   const { carrito: carritoo } = useSelector((state) => state.call);
   console.log(carritoo);
+  let cantidad = 1;
   const dispatch = useDispatch();
   let resultado = 0;
   function pepe() {
@@ -13,12 +16,14 @@ export function Carrito({ Carrito }) {
     });
     return resultado;
   }
+
   return (
-    <div className="container m-2 bg-slate-200">
+    <div className="container ml-[30px] mr-[30px] bg-slate-200 mt-[15px]">
       <table className="border-[1px] w-full border-[#ddd]  ">
         <tr className="">
           <th></th>
           <th className="">Producto</th>
+          <th className="">Cantidad</th>
           <th className="border-[1px]">Precio</th>
           <th className="">Eliminar</th>
         </tr>
@@ -36,10 +41,19 @@ export function Carrito({ Carrito }) {
             <td className="p-[8px] align-middle border-[1px] border-[#ddd] text-center	 ">
               {carrito.title}
             </td>
+            <td>
+              {cantidad}
+              <button>
+                <GrFormAdd />
+              </button>
+              <button>
+                <VscDash />
+              </button>
+            </td>
             <td className="p-[8px] align-middle textcenter border-[#ddd] border-[1px]">
               ${carrito.price}
             </td>
-            <td className="w-[30px] align-middle border-[1px] p-[20px]">
+            <td className="w-[30px] align-middle border-[1px] p-[20px] border-[#ddd]">
               <MdDelete
                 className=" w-[40px] h-[40px] bg-[red] cursor-pointer hover:bg-[#0BF4E2] m-2	"
                 onClick={() => {
