@@ -5,13 +5,20 @@ export const counterSlice = createSlice({
   initialState: {
     info: [],
     carrito: [],
+    cartTotalQuantity: 0,
+    cartTotalAmount: 0,
   },
   reducers: {
     setPeople: (state, action) => {
       state.info = action.payload;
     },
     setCarrito: (state, action) => {
-      state.carrito.push(action.payload);
+      if (
+        state.carrito.filter((item) => item.id === action.payload.id).length ===
+        0
+      ) {
+        state.carrito.push(action.payload);
+      }
     },
     setDeletecarrito: (state, action) => {
       const id = action.payload.id;
@@ -20,13 +27,22 @@ export const counterSlice = createSlice({
       );
       state.carrito = NextCarritoDelete;
     },
-    setadd: (state, action) => {
-      state.cantidad = +action;
+    setincrement: (state, action) => {
+      console.log(action.payload.id);
+      state.contador += 1;
+    },
+    setdecrement: (state, action) => {
+      state.contador -= 1;
     },
   },
 });
-export const { setPeople, setCarrito, setDeletecarrito, setadd } =
-  counterSlice.actions;
+export const {
+  setPeople,
+  setCarrito,
+  setDeletecarrito,
+  setdecrement,
+  setincrement,
+} = counterSlice.actions;
 export default counterSlice.reducer;
 const limit = 24;
 export const apicall = () => (dispatch) => {
@@ -73,4 +89,10 @@ export const carritodelete = (carrito) => (dispatch) => {
     icon: "error",
     title: `Se elimino de su carrito: ${carrito.title}`,
   });
+};
+export const incrementcarrito = (cantidad) => (dispatch) => {
+  dispatch(setincrement(cantidad));
+};
+export const decrementcarrito = (cantidad) => (dispatch) => {
+  dispatch(setdecrement(cantidad));
 };

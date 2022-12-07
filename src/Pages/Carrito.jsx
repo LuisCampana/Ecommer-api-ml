@@ -1,13 +1,18 @@
 import { useDispatch, useSelector } from "react-redux";
 import { MdDelete } from "react-icons/md";
-import { carritodelete } from "../Reducer/getss";
+import {
+  carritodelete,
+  incrementcarrito,
+  decrementcarrito,
+} from "../Reducer/getss";
 import { GrFormAdd } from "react-icons/gr";
 import { VscDash } from "react-icons/vsc";
 
 export function Carrito({ Carrito }) {
   const { carrito: carritoo } = useSelector((state) => state.call);
-  console.log(carritoo);
-  let cantidad = 1;
+  const { contador: cantidad } = useSelector((state) => state.call);
+  console.log(cantidad);
+  let preciototal = 0;
   const dispatch = useDispatch();
   let resultado = 0;
   function pepe() {
@@ -42,11 +47,11 @@ export function Carrito({ Carrito }) {
               {carrito.title}
             </td>
             <td>
-              {cantidad}
-              <button>
+              {}
+              <button onClick={() => dispatch(incrementcarrito(cantidad))}>
                 <GrFormAdd />
               </button>
-              <button>
+              <button onClick={() => dispatch(decrementcarrito(cantidad))}>
                 <VscDash />
               </button>
             </td>

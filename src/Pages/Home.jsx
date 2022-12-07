@@ -20,18 +20,17 @@ export default function Home(search) {
   useEffect(() => {
     search ? dispatch(apicallsearch(search)) : dispatch(apicall());
   }, [search]);
-  console.log(datos);
   return (
     <div className="">
       <div className="search ">
         <Search />
       </div>
-      <ul className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-[30px] m-[20px] justify-center bg-[#ebebeb]">
+      <ul className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-[30px] m-[20px] justify-center bg-[#ebebeb] justify-items-center	">
         {datos
           .map((dato) => <Productos key={dato.id} dato={dato} />)
           .slice(firnstIndex, lastIndex)}
       </ul>
-      <div className="pt-[40px]">
+      <div className="pt-[40px] bg-black	">
         <Paginacion
           productsPorPage={productsPorPage}
           currentPage={currentPage}

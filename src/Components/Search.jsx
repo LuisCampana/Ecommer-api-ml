@@ -10,7 +10,6 @@ export default function Search() {
     navigate(+searchParams);
   };
   let search = "";
-  console.log(item.length);
   return (
     <div className="bg-[#ffdb15] justify-center text-center flex ">
       <form
@@ -20,7 +19,7 @@ export default function Search() {
       >
         <div>
           <input
-            className="w-[400px] h-[29px] rounded-full	"
+            className=" h-[29px] rounded-full w-[250px] xl:w-[400px] lg:w-[400px]	"
             placeholder="Ingrese que lo quiera buscar"
             type="text"
             value={searchParams.get("search") || ""}
