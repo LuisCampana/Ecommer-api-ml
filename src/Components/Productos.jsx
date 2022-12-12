@@ -27,7 +27,7 @@ export default function Productos({ dato }) {
                 dispatch(carritonew(dato));
               }}
             >
-              Agregar al carrito
+              {disable ? `Agregado al carrito` : `Agregar al carrito`}
             </button>
           </div>
         </div>

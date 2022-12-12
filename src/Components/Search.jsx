@@ -38,7 +38,7 @@ export default function Search() {
         <button></button>
       </form>
 
-      <Link to={"/carrito"}>
+      <Link to={"/carrito"} className="text-[20px]">
         <div className="left-[3px] pr-[45px] text-[#F3250D]">{item.length}</div>
         <div className="carrito mr-[40px]">
           <BsCart className="text-[18px]" />

@@ -30,7 +30,7 @@ export default function Home(search) {
           .map((dato) => <Productos key={dato.id} dato={dato} />)
           .slice(firnstIndex, lastIndex)}
       </ul>
-      <div className="pt-[40px] bg-black	">
+      <div className="pt-[20px] bg-black	">
         <Paginacion
           productsPorPage={productsPorPage}
           currentPage={currentPage}

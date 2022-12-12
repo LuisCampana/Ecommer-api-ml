@@ -18,7 +18,7 @@ export const Paginacion = ({
           <li
             onClick={() => Pagespecifi(page)}
             key={page}
-            className={`list-none pb-[10px] pt-[10px] lg:pr-[20px] lg:pl-[10px] border-[1px] m-2 cursor-pointer sm:m-[3px] w-[30px] pl-[10px] text-[#FFFFFF] ${
+            className={`list-none pb-[10px] pt-[10px] lg:pr-[20px] lg:pl-[10px] border-[1px] m-2 cursor-pointer sm:m-[3px] w-[30px] pl-[10px] md:pl-0 text-[#FFFFFF] ${
               page === currentPage ? "bg-blue-700" : ""
             }`}
           >
