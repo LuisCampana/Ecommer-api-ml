@@ -5,12 +5,16 @@ export const counterSlice = createSlice({
   initialState: {
     info: [],
     carrito: [],
+    carousel: [],
     cartQuantity: 0,
     cartTotalAmount: 0,
   },
   reducers: {
     setPeople: (state, action) => {
       state.info = action.payload;
+    },
+    setCarousel: (state, action) => {
+      state.carousel = action.payload;
     },
     setCarrito: (state, action) => {
       if (
@@ -52,6 +56,7 @@ export const {
   setDeletecarrito,
   setdecrement,
   setincrement,
+  setCarousel,
 } = counterSlice.actions;
 export default counterSlice.reducer;
 const limit = 24;
@@ -68,6 +73,13 @@ export const apicallsearch = (path) => (dispatch) => {
     .then((res) => res.json())
     .then((res) => {
       dispatch(setPeople(res.results.slice(0, limit)));
+    });
+};
+export const apicallcarousel = (path) => (dispatch) => {
+  fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${path}`)
+    .then((res) => res.json())
+    .then((res) => {
+      dispatch(setCarousel(res.results.slice(0, 8)));
     });
 };
 
