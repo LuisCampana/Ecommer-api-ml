@@ -79,7 +79,7 @@ export const apicallcarousel = (path) => (dispatch) => {
   fetch(`https://api.mercadolibre.com/sites/MLA/search?q=${path}`)
     .then((res) => res.json())
     .then((res) => {
-      dispatch(setCarousel(res.results.slice(0, 8)));
+      dispatch(setCarousel(res.results.slice(0, 9)));
     });
 };
 
