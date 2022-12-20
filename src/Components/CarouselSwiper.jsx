@@ -6,7 +6,7 @@ import { apicallcarousel, carritonew } from "../Reducer/getss";
 import "swiper/css";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
-export function Carousel() {
+export function CarouselSwiper() {
   const { carousel: datos } = useSelector((state) => state.call);
   const { carrito: selectexist } = useSelector((state) => state.call);
   const [disable, setdisable] = useState(false);
@@ -17,8 +17,6 @@ export function Carousel() {
       ? setdisable(true)
       : setdisable(false);
   }, []);
-  console.log(datos);
-  console.log("carousel aca");
   return (
     <div className="flex ">
       <Swiper
@@ -65,7 +63,7 @@ export function Carousel() {
                   width="200px"
                   height="auto"
                 />
-                <div className="Nombre y precio text-center justify-center bg-[#F5B8AC] p-[15px] ">
+                <div className="Nombre y precio text-center justify-center bg-[#F5B8AC] p-[5px] mt-[10px] ">
                   <div className="text-[14px] detalles">
                     <h1 className="p-[8px] text-[12px]">{datos.title}</h1>
                     <strong className="text-[20px]">${datos.price}</strong>
