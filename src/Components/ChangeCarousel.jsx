@@ -12,16 +12,18 @@ export function Changecarousel() {
   }
 
   return (
-    <div>
-      <div className="categorias ml-[50px] pb-[15px]">
-        <div className="cursor-pointer" onClick={() => Categorias()}>
-          Categorias
+    <div className="bg-[#ffdb15] ">
+      <div className="categorias ml-[50px] pb-[15px] text-[black] ">
+        <div>
+          <strong className="cursor-pointer" onClick={() => Categorias()}>
+            Categorias
+          </strong>
         </div>
         {categorias ? (
-          <div className="bg-slate-600 w-[100px] text-[white] text-center">
+          <div className="bg-slate-600 w-[100px] text-[white] text-center ">
             <ul>
               <li
-                className="hover:bg-[#191CDF] cursor-pointer p-[5px]	"
+                className="hover:bg-[#191CDF] cursor-pointer p-[5px] 	"
                 onClick={() => {
                   dispatch(apicallcarousel("Auto"));
                 }}

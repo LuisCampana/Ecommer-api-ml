@@ -17,11 +17,14 @@ export const counterSlice = createSlice({
       state.carousel = action.payload;
     },
     setCarrito: (state, action) => {
-      if (
-        state.carrito.filter((item) => item.id === action.payload.id).length ===
-        0
-      ) {
-        state.carrito.push(action.payload);
+      const itemindex = state.carrito.findIndex(
+        (item) => item.id === action.payload.id
+      );
+      if (itemindex >= 0) {
+        state.carrito[itemindex].cartQuantity += 1;
+      } else {
+        const product = { ...action.payload, cartQuantity: 1 };
+        state.carrito.push(product);
       }
     },
     setDeletecarrito: (state, action) => {
@@ -31,14 +34,10 @@ export const counterSlice = createSlice({
       );
       state.carrito = NextCarritoDelete;
     },
-    setincrement: (state, action) => {
-      state.carrito.cartQuantity = action.payload;
-    },
     setdecrement: (state, action) => {
       const itemindex = state.carrito.findIndex(
         (item) => item.id === action.payload.id
       );
-      console.log(itemindex);
       if (state.carrito[itemindex].cartQuantity > 1) {
         state.carrito[itemindex].cartQuantity -= 1;
       } else if (state.carrito[itemindex].cartQuantity === 1) {
@@ -48,6 +47,7 @@ export const counterSlice = createSlice({
         state.carrito = nextcarrito;
       }
     },
+    setTotalacount: (state, action) => {},
   },
 });
 export const {
@@ -55,7 +55,6 @@ export const {
   setCarrito,
   setDeletecarrito,
   setdecrement,
-  setincrement,
   setCarousel,
 } = counterSlice.actions;
 export default counterSlice.reducer;
@@ -113,9 +112,9 @@ export const carritodelete = (carrito) => (dispatch) => {
   });
 };
 
-export const decrementcarrito = () => (dispatch) => {
-  dispatch(setdecrement());
+export const decrementcarrito = (carrito) => (dispatch) => {
+  dispatch(setdecrement(carrito));
 };
-export const incremento = () => (dispatch) => {
-  dispatch(setincrement());
+export const incremento = (carrito) => (dispatch) => {
+  dispatch(setCarrito(carrito));
 };

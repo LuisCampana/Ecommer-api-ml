@@ -6,6 +6,7 @@ import { VscDash } from "react-icons/vsc";
 
 export function Carrito({ Carrito }) {
   const { carrito: carritoo } = useSelector((state) => state.call);
+  const { cartQuantity: Quantity } = useSelector((state) => state.call);
 
   let preciototal = 0;
   const dispatch = useDispatch();
@@ -43,16 +44,19 @@ export function Carrito({ Carrito }) {
                 {carrito.title}
               </td>
               <td>
-                {}
-                <button onClick={() => dispatch(incremento())}>
+                {carrito.cartQuantity}
+                <button onClick={() => dispatch(incremento(carrito))}>
                   <GrFormAdd />
                 </button>
-                <button onClick={() => dispatch(decrementcarrito())}>
+                <button onClick={() => dispatch(decrementcarrito(carrito))}>
                   <VscDash />
                 </button>
               </td>
               <td className="p-[8px] align-middle textcenter border-[#ddd] border-[1px]">
-                ${carrito.price}
+                $
+                {Math.trunc(
+                  (preciototal = carrito.price * carrito.cartQuantity)
+                )}
               </td>
               <td className="w-[30px] align-middle border-[1px] p-[20px] border-[#ddd]">
                 <MdDelete
