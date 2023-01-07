@@ -1,5 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import Swal from "sweetalert2";
+import { Carrito } from "../Pages/Carrito";
 export const counterSlice = createSlice({
   name: "call",
   initialState: {
@@ -47,7 +48,6 @@ export const counterSlice = createSlice({
         state.carrito = nextcarrito;
       }
     },
-    setTotalacount: (state, action) => {},
   },
 });
 export const {

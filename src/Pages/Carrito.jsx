@@ -6,15 +6,20 @@ import { VscDash } from "react-icons/vsc";
 
 export function Carrito({ Carrito }) {
   const { carrito: carritoo } = useSelector((state) => state.call);
-  const { cartQuantity: Quantity } = useSelector((state) => state.call);
-
   let preciototal = 0;
   const dispatch = useDispatch();
   let resultado = 0;
   function pepe() {
     carritoo.map((element) => {
-      resultado = resultado + element.price;
+      let precio;
+      if (carritoo.cartQuantity > 1) {
+        precio = element.price * 2;
+        resultado = resultado + precio;
+      } else {
+        resultado = resultado + element.price;
+      }
     });
+    console.log(resultado);
     return resultado;
   }
 
@@ -43,14 +48,16 @@ export function Carrito({ Carrito }) {
               <td className="p-[8px] align-middle border-[1px] border-[#ddd] text-center	 ">
                 {carrito.title}
               </td>
-              <td>
-                {carrito.cartQuantity}
-                <button onClick={() => dispatch(incremento(carrito))}>
-                  <GrFormAdd />
-                </button>
-                <button onClick={() => dispatch(decrementcarrito(carrito))}>
-                  <VscDash />
-                </button>
+              <td className="">
+                <div className="flex justify-center">
+                  <button onClick={() => dispatch(incremento(carrito))}>
+                    <GrFormAdd />
+                  </button>
+                  <div>{carrito.cartQuantity}</div>
+                  <button onClick={() => dispatch(decrementcarrito(carrito))}>
+                    <VscDash />
+                  </button>
+                </div>
               </td>
               <td className="p-[8px] align-middle textcenter border-[#ddd] border-[1px]">
                 $
