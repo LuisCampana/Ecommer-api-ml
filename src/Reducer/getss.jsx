@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { compose, createSlice } from "@reduxjs/toolkit";
 import Swal from "sweetalert2";
 import { Carrito } from "../Pages/Carrito";
 export const counterSlice = createSlice({
@@ -48,9 +48,19 @@ export const counterSlice = createSlice({
         state.carrito = nextcarrito;
       }
     },
+    setTotal: (state, action) => {
+      let cuentatotal = 0;
+      state.carrito.map((carrito) => {
+        let total = carrito.price * carrito.cartQuantity;
+        cuentatotal = cuentatotal + total;
+        console.log(cuentatotal);
+      });
+      state.cartTotalAmount = cuentatotal;
+    },
   },
 });
 export const {
+  setTotal,
   setPeople,
   setCarrito,
   setDeletecarrito,
@@ -117,4 +127,8 @@ export const decrementcarrito = (carrito) => (dispatch) => {
 };
 export const incremento = (carrito) => (dispatch) => {
   dispatch(setCarrito(carrito));
+};
+
+export const totalacount = (carrito) => (dispatch) => {
+  dispatch(setTotal(carrito));
 };

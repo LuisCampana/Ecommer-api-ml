@@ -66,7 +66,9 @@ export function CarouselSwiper() {
                 <div className="Nombre y precio text-center justify-center bg-[#F5B8AC] p-[5px] mt-[10px] ">
                   <div className="text-[14px] detalles">
                     <h1 className="p-[8px] text-[12px]">{datos.title}</h1>
-                    <strong className="text-[20px]">${datos.price}</strong>
+                    <strong className="text-[20px]">
+                      ${Math.trunc(datos.price)}
+                    </strong>
                     <div className="bg-[black] ">
                       <button
                         disabled={disable}

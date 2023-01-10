@@ -25,6 +25,7 @@ export function Changecarousel() {
               <li
                 className="hover:bg-[#191CDF] cursor-pointer p-[5px] 	"
                 onClick={() => {
+                  Categorias();
                   dispatch(apicallcarousel("Auto"));
                 }}
               >
@@ -33,6 +34,7 @@ export function Changecarousel() {
               <li
                 className=" hover:bg-[#191CDF] cursor-pointer p-[5px]	"
                 onClick={() => {
+                  Categorias();
                   dispatch(apicallcarousel("Remeras"));
                 }}
               >
@@ -41,6 +43,7 @@ export function Changecarousel() {
               <li
                 className="hover:bg-[#191CDF] cursor-pointer p-[5px]	"
                 onClick={() => {
+                  Categorias();
                   dispatch(apicallcarousel("Inmuebles"));
                 }}
               >
@@ -49,6 +52,7 @@ export function Changecarousel() {
               <li
                 className=" hover:bg-[#191CDF] cursor-pointer p-[5px]	"
                 onClick={() => {
+                  Categorias();
                   dispatch(apicallcarousel("Pantalones"));
                 }}
               >
@@ -57,6 +61,7 @@ export function Changecarousel() {
               <li
                 className="hover:bg-[#191CDF] cursor-pointer p-[5px]	"
                 onClick={() => {
+                  Categorias();
                   dispatch(apicallcarousel("Celulalres"));
                 }}
               >

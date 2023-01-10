@@ -27,7 +27,7 @@ export default function Home(search) {
       <div className="search ">
         <Search />
       </div>
-      <div className="changecarousel">
+      <div className="changecarousel bg-green">
         <Changecarousel />
       </div>
       <div className="carousel">

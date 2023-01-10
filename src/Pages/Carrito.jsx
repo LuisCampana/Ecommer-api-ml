@@ -1,27 +1,24 @@
 import { useDispatch, useSelector } from "react-redux";
 import { MdDelete } from "react-icons/md";
-import { carritodelete, decrementcarrito, incremento } from "../Reducer/getss";
+import {
+  carritodelete,
+  decrementcarrito,
+  incremento,
+  totalacount,
+} from "../Reducer/getss";
 import { GrFormAdd } from "react-icons/gr";
 import { VscDash } from "react-icons/vsc";
+import { useEffect } from "react";
 
 export function Carrito({ Carrito }) {
   const { carrito: carritoo } = useSelector((state) => state.call);
+  const { cartTotalAmount: preciofinal } = useSelector((state) => state.call);
   let preciototal = 0;
   const dispatch = useDispatch();
   let resultado = 0;
-  function pepe() {
-    carritoo.map((element) => {
-      let precio;
-      if (carritoo.cartQuantity > 1) {
-        precio = element.price * 2;
-        resultado = resultado + precio;
-      } else {
-        resultado = resultado + element.price;
-      }
-    });
-    console.log(resultado);
-    return resultado;
-  }
+  useEffect(() => {
+    dispatch(totalacount());
+  }, [carritoo, dispatch]);
 
   return (
     <div className="sml-0 mr-0 lg:mr-[30px] xl:mr-[30px] xl:ml-[30px] lg:ml-[30px]">
@@ -77,7 +74,7 @@ export function Carrito({ Carrito }) {
           ))}
         </table>
         <h2 className=" text-center p-[40px] text-[30px]">
-          Total de Precio es de:${pepe()}
+          Total de Precio es de:${Math.trunc(preciofinal)}
         </h2>
       </div>
     </div>
