@@ -15,7 +15,6 @@ export function Carrito({ Carrito }) {
   const { cartTotalAmount: preciofinal } = useSelector((state) => state.call);
   let preciototal = 0;
   const dispatch = useDispatch();
-  let resultado = 0;
   useEffect(() => {
     dispatch(totalacount());
   }, [carritoo, dispatch]);
@@ -28,7 +27,7 @@ export function Carrito({ Carrito }) {
             <th></th>
             <th className="">Producto</th>
             <th className="">Cantidad</th>
-            <th className="border-[1px]">Precio</th>
+            <th className="">Precio</th>
             <th className="">Eliminar</th>
           </tr>
           {carritoo?.map((carrito) => (
@@ -42,8 +41,8 @@ export function Carrito({ Carrito }) {
                   height="97"
                 />
               </td>
-              <td className="p-[8px] align-middle border-[1px] border-[#ddd] text-center	 ">
-                {carrito.title}
+              <td className="lg:p-[8px] align-middle border-[1px] border-[#ddd] text-center sm:p-[5px] 	 ">
+                <p className="text-[10px] lg:text-[20px]">{carrito.title}</p>
               </td>
               <td className="">
                 <div className="flex justify-center">
@@ -56,13 +55,13 @@ export function Carrito({ Carrito }) {
                   </button>
                 </div>
               </td>
-              <td className="p-[8px] align-middle textcenter border-[#ddd] border-[1px]">
+              <td className="lg:p-[8px] align-middle textcenter border-[#ddd] border-[1px] sm:p-[5px]">
                 $
                 {Math.trunc(
                   (preciototal = carrito.price * carrito.cartQuantity)
                 )}
               </td>
-              <td className="w-[30px] align-middle border-[1px] p-[20px] border-[#ddd]">
+              <td className="w-[30px] align-middle border-[1px] lg:p-[20px] border-[#ddd] sm:p-[5px]">
                 <MdDelete
                   className=" w-[40px] h-[40px] bg-[red] cursor-pointer hover:bg-[#0BF4E2] m-2	"
                   onClick={() => {
