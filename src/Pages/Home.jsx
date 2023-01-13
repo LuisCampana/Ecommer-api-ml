@@ -13,7 +13,7 @@ export default function Home(search) {
   const [currentPage, setcurrentPage] = useState(1);
   const totalProducts = datos.length;
   const dispatch = useDispatch();
-
+  console.log(datos);
   let params = new URLSearchParams(useLocation().search);
   search = params.get("search");
 

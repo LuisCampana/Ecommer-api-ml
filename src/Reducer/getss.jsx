@@ -1,6 +1,5 @@
-import { compose, createSlice } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import Swal from "sweetalert2";
-import { Carrito } from "../Pages/Carrito";
 export const counterSlice = createSlice({
   name: "call",
   initialState: {
@@ -53,7 +52,6 @@ export const counterSlice = createSlice({
       state.carrito.map((carrito) => {
         let total = carrito.price * carrito.cartQuantity;
         cuentatotal = cuentatotal + total;
-        console.log(cuentatotal);
       });
       state.cartTotalAmount = cuentatotal;
     },

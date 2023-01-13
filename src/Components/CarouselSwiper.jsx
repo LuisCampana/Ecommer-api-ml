@@ -55,7 +55,10 @@ export function CarouselSwiper() {
         {datos.map((datos) => {
           return (
             <SwiperSlide className="flex justify-center w-[233px] h-[310px]">
-              <div className=" justify-center	text-center flex h-[300px] w-[300px] ">
+              <div
+                className=" justify-center	text-center flex h-[300px] w-[300px] "
+                key={datos.id}
+              >
                 <img
                   className=""
                   src={datos.thumbnail}
@@ -63,13 +66,13 @@ export function CarouselSwiper() {
                   width="200px"
                   height="auto"
                 />
-                <div className="Nombre y precio text-center justify-center bg-[#F5B8AC] p-[5px] mt-[10px] ">
+                <div className="Nombre y precio text-center justify-center bg-[#909497] p-[5px] mt-[10px] ">
                   <div className="text-[14px] detalles">
                     <h1 className="p-[8px] text-[12px]">{datos.title}</h1>
                     <strong className="text-[20px]">
                       ${Math.trunc(datos.price)}
                     </strong>
-                    <div className="bg-[black] ">
+                    <div className="bg-[black] rounded-[8px] ">
                       <button
                         disabled={disable}
                         className="p-[6px] m-3 text-[white] "
