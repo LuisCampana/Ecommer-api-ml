@@ -27,13 +27,10 @@ export default function Home(search) {
       <div className="search ">
         <Search />
       </div>
-      <div className="changecarousel bg-green">
-        <Changecarousel />
-      </div>
       <div className="carousel">
         <CarouselSwiper />
       </div>
-      <ul className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-[30px] m-[20px] justify-center bg-[#ebebeb] justify-items-center	">
+      <ul className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 p-[30px] m-[20px] justify-center bg-[#ebebeb] justify-items-center gap-[50px]	">
         {datos
           .map((dato) => <Productos key={dato.id} dato={dato} />)
           .slice(firnstIndex, lastIndex)}

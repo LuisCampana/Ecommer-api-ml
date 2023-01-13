@@ -4,7 +4,6 @@ import { useState } from "react";
 
 export function Changecarousel() {
   const dispatch = useDispatch();
-
   const [categorias, setcategorias] = useState(false);
 
   function Categorias() {
@@ -20,7 +19,7 @@ export function Changecarousel() {
           </strong>
         </div>
         {categorias ? (
-          <div className="bg-slate-600 w-[100px] text-[white] text-center ">
+          <div className="bg-slate-600 w-[100px] text-[white] text-center">
             <ul>
               <li
                 className="hover:bg-[#191CDF] cursor-pointer p-[5px] 	"

@@ -1,6 +1,7 @@
 import { BsCart } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import { useSearchParams, useNavigate, Link } from "react-router-dom";
+import { Changecarousel } from "./ChangeCarousel";
 export default function Search() {
   const [searchParams, setSearchParams] = useSearchParams();
   const { carrito: item } = useSelector((state) => state.call);
@@ -11,7 +12,10 @@ export default function Search() {
   };
   let search = "";
   return (
-    <div className="bg-[#ffdb15] justify-center text-center flex ">
+    <div className="bg-[#ffdb15] justify-center text-center flex items-baseline ">
+      <div className="changecarousel ">
+        <Changecarousel />
+      </div>
       <form
         className="p-2 relative rounded-full w-[1200px] 
         "
@@ -19,7 +23,7 @@ export default function Search() {
       >
         <div>
           <input
-            className=" h-[29px] rounded-full w-[250px] xl:w-[400px] lg:w-[400px]	"
+            className=" h-[29px] rounded-full  xl:w-[400px] lg:w-[400px] sm:w-[120px] md:w-[250px]	"
             placeholder="Ingrese que lo quiera buscar"
             type="text"
             value={searchParams.get("search") || ""}

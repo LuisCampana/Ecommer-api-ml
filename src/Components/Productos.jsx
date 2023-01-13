@@ -2,13 +2,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { carritonew } from "../Reducer/getss";
 import { useState, useEffect } from "react";
 export default function Productos({ dato }) {
-  const [disable, setdisable] = useState(false);
-  const { carrito: selectexist } = useSelector((state) => state.call);
-  useEffect(() => {
-    selectexist.some((item) => item.id === dato.id)
-      ? setdisable(true)
-      : setdisable(false);
-  }, []);
   const dispatch = useDispatch();
   return (
     <div
@@ -24,13 +17,12 @@ export default function Productos({ dato }) {
           <strong className="text-[20px]">${Math.trunc(dato.price)}</strong>
           <div className="bg-[black] rounded-[8px]">
             <button
-              disabled={disable}
               className="p-[6px] m-3 text-[white]"
               onClick={() => {
                 dispatch(carritonew(dato));
               }}
             >
-              {disable ? `Agregado al carrito` : `Agregar al carrito`}
+              Agregar al carrito
             </button>
           </div>
         </div>
