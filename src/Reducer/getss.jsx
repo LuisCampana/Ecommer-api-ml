@@ -122,6 +122,19 @@ export const carritodelete = (carrito) => (dispatch) => {
 
 export const decrementcarrito = (carrito) => (dispatch) => {
   dispatch(setdecrement(carrito));
+  if (carrito.cartQuantity === 1) {
+    const Toast = Swal.mixin({
+      toast: true,
+      position: "bottom-start",
+      showConfirmButton: false,
+      timer: 3000,
+      timerProgressBar: true,
+    });
+    Toast.fire({
+      icon: "error",
+      title: `Se elimino de su carrito: ${carrito.title}`,
+    });
+  }
 };
 export const incremento = (carrito) => (dispatch) => {
   dispatch(setCarrito(carrito));

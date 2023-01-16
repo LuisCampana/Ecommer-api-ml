@@ -56,7 +56,7 @@ export function CarouselSwiper() {
           return (
             <SwiperSlide className="flex justify-center w-[233px] h-[310px]">
               <div
-                className=" justify-center	text-center flex h-[300px] w-[300px] "
+                className=" justify-center	text-center flex h-[300px] w-[300px]  "
                 key={datos.id}
               >
                 <img
