@@ -11,7 +11,7 @@ export function Changecarousel() {
   }
 
   return (
-    <div className="bg-[#ffdb15] ">
+    <div className="bg-[#ffdb15]  ">
       <div className="categorias ml-[50px] pb-[15px] text-[black] ">
         <div>
           <strong className="cursor-pointer" onClick={() => Categorias()}>
@@ -19,7 +19,7 @@ export function Changecarousel() {
           </strong>
         </div>
         {categorias ? (
-          <div className="bg-slate-600 w-[100px] text-[white] text-center">
+          <div className="bg-slate-600 w-[100px] text-[white] text-center ">
             <ul>
               <li
                 className="hover:bg-[#191CDF] cursor-pointer p-[5px] 	"

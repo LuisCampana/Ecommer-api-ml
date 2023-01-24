@@ -1,6 +1,5 @@
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { carritonew } from "../Reducer/getss";
-import { useState, useEffect } from "react";
 export default function Productos({ dato }) {
   const dispatch = useDispatch();
   return (

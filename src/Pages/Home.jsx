@@ -1,7 +1,6 @@
 import { useEffect, useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { useLocation } from "react-router-dom";
-import { Changecarousel } from "../Components/ChangeCarousel";
 import { Paginacion } from "../Components/Paginacion";
 import Productos from "../Components/Productos";
 import Search from "../Components/Search";
@@ -13,7 +12,6 @@ export default function Home(search) {
   const [currentPage, setcurrentPage] = useState(1);
   const totalProducts = datos.length;
   const dispatch = useDispatch();
-  console.log(datos);
   let params = new URLSearchParams(useLocation().search);
   search = params.get("search");
 
@@ -22,6 +20,7 @@ export default function Home(search) {
   useEffect(() => {
     search ? dispatch(apicallsearch(search)) : dispatch(apicall());
   }, [search]);
+
   return (
     <div className="">
       <div className="search ">
